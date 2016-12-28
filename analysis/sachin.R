@@ -8,6 +8,9 @@ o <- read.csv("data/sachinODIBatting.csv")
 o <- o[o$Runs != "DNB",]
 Acf(o$Runs, lag.max = 20, type = "correlation")
 
+ots <- ts(o$Runs)
+unitrootTest(ots, lags=2, type = "c")
+
 plot.ts(o$Runs)
 unique(o$Inns)
 oi1 <- o[o$Inns == 1,]

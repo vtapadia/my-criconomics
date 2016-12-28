@@ -21,6 +21,8 @@ unique(t$Inns)
 plot.ts(t$Runs)
 Acf(t$Runs, lag.max = 20, type = "correlation")
 
+tts<-ts(t$Runs)
+unitrootTest(tts, lags=2, type = "c")
 # Checking if there is any correlation with previous innings 
 ti1 <- t[t$Inns %in% c(1,2),]
 ti2 <- t[!t$Inns %in% c(1,2),]
